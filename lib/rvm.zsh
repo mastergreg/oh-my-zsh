@@ -1,5 +1,5 @@
 # get the name of the branch we are on
 function rvm_prompt_info() {
-  ruby_version=$(~/.rvm/bin/rvm-prompt 2> /dev/null) || return
-  [[ ! -z $ruby_version ]] && echo "($ruby_version)"
+  ruby_version=$(ruby -v | cut -d" " -f 2) || return
+  echo "($ruby_version)"
 }
