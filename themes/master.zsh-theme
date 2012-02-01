@@ -42,8 +42,8 @@ ZSH_THEME_GIT_PROMPT_UNTRACKED=" %{$GREEN%}unt"
 
 # Prompt format
 
-if [ $UID -eq 0 ]; then CARETCOLOR="red"; else CARETCOLOR="green"; fi
+if [ $UID -eq 0 ]; then CARETCOLOR="red"; else CARETCOLOR="white"; fi
 
-PROMPT='%{${GREEN}%}%n%{$RESET_COLOR%}@%{${RED}%}%m%{$RESET_COLOR%}:%{${BLUE}%}%3~$(parse_git_dirty)$(git_prompt_ahead) %{${fg_bold[$CARETCOLOR]}%}%#%{${RESET_COLOR}%} '
+PROMPT=$'┌─%{${BLUE}%}%n%{$RESET_COLOR%}@%{${GREEN}%}%m%{$RESET_COLOR%}:%{${YELLOW}%}%3~$(parse_git_dirty)$(git_prompt_ahead) %{${RESET_COLOR}%} \n└─%{${fg_bold[$CARETCOLOR]}%}>>=%{${RESET_COLOR}%} '
 
 RPROMPT='%{$RED%}$(current_branch)$(git_prompt_status)%{$RESET_COLOR%}'
