@@ -42,9 +42,13 @@ ZSH_THEME_GIT_PROMPT_UNTRACKED=" %{$GREEN%}unt"
 
 
 # Prompt format
+function rprompt_char() {
+  git branch >/dev/null 2>/dev/null && echo "%{$fg[green]%}±%{$reset_color%}" && return
+  hg root >/dev/null 2>/dev/null && echo "%{$fg_bold[blue]%}☿%{$reset_color%}" && return
+}
 
 if [ $UID -eq 0 ]; then CARETCOLOR="red"; else CARETCOLOR="white"; fi
 
 PROMPT=$'┌─%{${BLUE}%}%n%{$RESET_COLOR%}@%{${GREEN}%}%m%{$RESET_COLOR%}:%{${GREY_BOLD}%}%3~$(parse_git_dirty)$(git_prompt_ahead) %{${RESET_COLOR}%} \n└─%{${fg_bold[$CARETCOLOR]}%}>>=%{${RESET_COLOR}%} '
 
-RPROMPT='%{$RED%}$(current_branch)$(git_prompt_status)%{$RESET_COLOR%}'
+RPROMPT='$(rprompt_char) %{$RED%}$(current_branch)$(current_branch_hg)$(git_prompt_status)%{$RESET_COLOR%}'
