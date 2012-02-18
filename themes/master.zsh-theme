@@ -47,8 +47,8 @@ function rprompt_char() {
   hg root >/dev/null 2>/dev/null && echo "%{$fg_bold[blue]%}☿%{$reset_color%}" && return
 }
 
-if [ $UID -eq 0 ]; then CARETCOLOR="red"; else CARETCOLOR="white"; fi
+if [ $UID -eq 0 ]; then CARETCOLOR="red"; else CARETCOLOR="green"; fi
 
-PROMPT=$'%{${BLUE}%}%n%{$RESET_COLOR%}@%{${GREEN}%}%m%{$RESET_COLOR%}:%{${GREY_BOLD}%}%3~$(parse_git_dirty)$(git_prompt_ahead)%{${fg[$CARETCOLOR]}%} >>=%{${RESET_COLOR}%} '
+PROMPT=$'%{${BLUE}%}%n%{$RESET_COLOR%}@%{${GREEN_BOLD}%}%m%{$RESET_COLOR%}:%{${GREY_BOLD}%}%3~$(parse_git_dirty)$(git_prompt_ahead)%{${fg[$CARETCOLOR]}%} $%{${RESET_COLOR}%} '
 
 RPROMPT='$(rprompt_char) %{$RED%}$(current_branch)$(current_branch_hg)$(git_prompt_status)%{$RESET_COLOR%}'
