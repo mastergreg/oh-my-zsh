@@ -27,10 +27,10 @@ ZSH_THEME_GIT_PROMPT_PREFIX=""
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$RESET_COLOR}"
 
 # Format for parse_git_dirty()
-ZSH_THEME_GIT_PROMPT_DIRTY=" %{$RED%}(⚡)"
+ZSH_THEME_GIT_PROMPT_DIRTY=" %{$RED%}(*)"
 ZSH_THEME_GIT_PROMPT_CLEAN=""
 # Format for git_prompt_ahead()
-ZSH_THEME_GIT_PROMPT_AHEAD=" %{$YELLOW%}(↑)"
+ZSH_THEME_GIT_PROMPT_AHEAD=" %{$YELLOW%}(^)"
 
 # Format for git_prompt_status()
 ZSH_THEME_GIT_PROMPT_UNMERGED=" %{$RED_BOLD%}unm"
@@ -43,8 +43,8 @@ ZSH_THEME_GIT_PROMPT_UNTRACKED=" %{$GREEN%}unt"
 
 # Prompt format
 function rprompt_char() {
-  git branch >/dev/null 2>/dev/null && echo "%{$fg[green]%}±%{$reset_color%}" && return
-  hg root >/dev/null 2>/dev/null && echo "%{$fg_bold[blue]%}☿%{$reset_color%}" && return
+  git branch >/dev/null 2>/dev/null && echo "%{$fg[green]%}git:%{$reset_color%}" && return
+  hg root >/dev/null 2>/dev/null && echo "%{$fg_bold[blue]%}hg:%{$reset_color%}" && return
 }
 
 if [ $UID -eq 0 ]; then CARETCOLOR="red"; else CARETCOLOR="green"; fi
