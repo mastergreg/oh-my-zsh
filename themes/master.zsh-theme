@@ -34,22 +34,22 @@ ZSH_THEME_GIT_PROMPT_CLEAN=""
 ZSH_THEME_GIT_PROMPT_AHEAD="%{$YELLOW%} ^%{$RESET_COLOR%}"
 
 # Format for git_prompt_status()
-ZSH_THEME_GIT_PROMPT_UNMERGED="|%{$RED_BOLD%}U"
-ZSH_THEME_GIT_PROMPT_DELETED="|%{$RED_BOLD%}D"
-ZSH_THEME_GIT_PROMPT_RENAMED="|%{$BLUE_BOLD%}R"
-ZSH_THEME_GIT_PROMPT_MODIFIED="|%{$YELLOW_BOLD%}M"
-ZSH_THEME_GIT_PROMPT_ADDED="|%{$BLUE_BOLD%}A"
-ZSH_THEME_GIT_PROMPT_UNTRACKED="|%{$GREEN_BOLD%}UT"
+ZSH_THEME_GIT_PROMPT_UNMERGED="|%{$RED_BOLD%}U%{$RESET_COLOR%}"
+ZSH_THEME_GIT_PROMPT_DELETED="|%{$RED_BOLD%}D%{$RESET_COLOR%}"
+ZSH_THEME_GIT_PROMPT_RENAMED="|%{$BLUE_BOLD%}R%{$RESET_COLOR%}"
+ZSH_THEME_GIT_PROMPT_MODIFIED="|%{$YELLOW_BOLD%}M%{$RESET_COLOR%}"
+ZSH_THEME_GIT_PROMPT_ADDED="|%{$BLUE_BOLD%}A%{$RESET_COLOR%}"
+ZSH_THEME_GIT_PROMPT_UNTRACKED="|%{$GREEN_BOLD%}UT%{$RESET_COLOR%}"
 
 
 # Prompt format
 function rprompt_char() {
   git branch >/dev/null 2>/dev/null && echo "%{$fg_bold[green]%}±%{$RESET_COLOR%} " && return
-  hg root >/dev/null 2>/dev/null && echo "%{$fg_bold[blue]%}hg%{$reset_color%}:" && return
+  hg root >/dev/null 2>/dev/null && echo "%{$fg_bold[blue]%}hg%{$RESET_COLOR%}:" && return
 }
 
 if [ $UID -eq 0 ]; then CARETCOLOR="red"; else CARETCOLOR="green"; fi
 
-PROMPT=$'%{${BLUE}%}%n%{$RESET_COLOR%}@%{${GREEN_BOLD}%}%m%{$RESET_COLOR%}:%{${GREY_BOLD}%}%3~%{$RESET_COLOR%}%{${fg_bold[$CARETCOLOR]}%} $%{${RESET_COLOR}%} '
+PROMPT=$'%{${GREEN_BOLD}%}%m%{$RESET_COLOR%} %{${BLUE_BOLD}%}%3~%{$RESET_COLOR%}%{${fg_bold[$CARETCOLOR]}%} %#%{${RESET_COLOR}%} '
 
 RPROMPT='$(rprompt_char)%{$RED_BOLD%}$(current_branch)$(parse_git_dirty)$(git_prompt_ahead)$(current_branch_hg)$(git_prompt_status)%{$RESET_COLOR%}'
