@@ -28,10 +28,10 @@ ZSH_THEME_GIT_PROMPT_PREFIX=""
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$RESET_COLOR}"
 
 # Format for parse_git_dirty()
-ZSH_THEME_GIT_PROMPT_DIRTY="%{$RED%} *%{$RESET_COLOR%}"
+ZSH_THEME_GIT_PROMPT_DIRTY="%{$RED_BOLD%} (⚡)%{$RESET_COLOR%}"
 ZSH_THEME_GIT_PROMPT_CLEAN=""
 # Format for git_prompt_ahead()
-ZSH_THEME_GIT_PROMPT_AHEAD="%{$YELLOW%} ^%{$RESET_COLOR%}"
+ZSH_THEME_GIT_PROMPT_AHEAD="%{$YELLOW%} (↑)%{$RESET_COLOR%}"
 
 # Format for git_prompt_status()
 ZSH_THEME_GIT_PROMPT_UNMERGED="|%{$RED_BOLD%}U%{$RESET_COLOR%}"
@@ -50,6 +50,6 @@ function rprompt_char() {
 
 if [ $UID -eq 0 ]; then CARETCOLOR="red"; else CARETCOLOR="green"; fi
 
-PROMPT=$'%{${GREEN_BOLD}%}%m%{$RESET_COLOR%} %{${BLUE_BOLD}%}%3~%{$RESET_COLOR%}%{${fg_bold[$CARETCOLOR]}%} %#%{${RESET_COLOR}%} '
+PROMPT=$'%{${GREEN_BOLD}%}%m%{$RESET_COLOR%} %{${BLUE_BOLD}%}%3~%{$RESET_COLOR%}$(parse_git_dirty)$(git_prompt_ahead)%{${fg_bold[$CARETCOLOR]}%} %#%{${RESET_COLOR}%} '
 
-RPROMPT='$(rprompt_char)%{$RED_BOLD%}$(current_branch)$(parse_git_dirty)$(git_prompt_ahead)$(current_branch_hg)$(git_prompt_status)%{$RESET_COLOR%}'
+RPROMPT='$(rprompt_char)%{$RED_BOLD%}$(current_branch)$(current_branch_hg)$(git_prompt_status)%{$RESET_COLOR%}'
