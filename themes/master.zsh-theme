@@ -56,4 +56,7 @@ if [ $UID -eq 0 ]; then CARETCOLOR="red"; else CARETCOLOR="white"; fi
 
 PROMPT=$'%{${WHITE_BOLD}%}%m%{$RESET_COLOR%} %{${BLUE_BOLD}%}%3~%{$RESET_COLOR%}$(parse_git_dirty)$(git_prompt_ahead)%{${fg_bold[$CARETCOLOR]}%} $%{${RESET_COLOR}%} '
 
-RPROMPT='$(rprompt_char)%{$RED_BOLD%}$(current_branch)$(current_branch_hg)$(git_prompt_status)%{$RESET_COLOR%}'
+RPROMPT='%{$BLUE_BOLD%}(%{$RESET_COLOR%}$(rprompt_char)%{$YELLOW_BOLD%}$(current_branch)$(current_branch_hg)$(git_prompt_status)%{$BLUE_BOLD%})%{$RESET_COLOR%}'
+
+
+
