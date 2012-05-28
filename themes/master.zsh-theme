@@ -51,7 +51,7 @@ export LS_COLORS='no=00:fi=00:di=01;34:ln=00;36:pi=40;33:so=01;35:do=01;35:bd=40
 
 CARETCOLOR=$fg[white]
 
-PROMPT=$'%{${WHITE_BOLD}%}%m%{$RESET_COLOR%} %{${BLUE_BOLD}%}%3~$(git_prompt_ahead)%{$RESET_COLOR%}%{$CARETCOLOR%} $%{${RESET_COLOR}%} '
+PROMPT=$'%(?..[%{${RED_BOLD}%}%?%{${RESET_COLOR}%}] )%{${WHITE_BOLD}%}%m%{$RESET_COLOR%} %{${BLUE_BOLD}%}%3~$(git_prompt_ahead)%{$RESET_COLOR%}%{$CARETCOLOR%} $%{${RESET_COLOR}%} '
 
 RPROMPT='$(git_prompt_info)$(git_prompt_status)%{$RESET_COLOR%}'
 
