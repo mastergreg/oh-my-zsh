@@ -88,6 +88,16 @@ function git_compare_version() {
   echo 1
 }
 
+function git_branch() {
+    BRANCH=$(git branch 2> /dev/null | grep "^\*" | sed 's/\* //')
+    if [ 'x'$BRANCH = 'x' ]
+    then
+        echo ''
+    else
+        echo $ZSH_THEME_GIT_PROMPT_PREFIX$BRANCH$ZSH_THEME_GIT_PROMPT_SUFFIX
+    fi
+}
+
 #this is unlikely to change so make it all statically assigned
 POST_1_7_2_GIT=$(git_compare_version "1.7.2")
 #clean up the namespace slightly by removing the checker function
