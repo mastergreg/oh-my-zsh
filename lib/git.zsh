@@ -89,7 +89,7 @@ function git_compare_version() {
 }
 
 function git_branch() {
-    BRANCH=$(git branch 2> /dev/null | grep "^\*" | sed 's/\* //')
+BRANCH=$(git branch 2> /dev/null |  sed -e '/^[^*]/d' -e 's/\* //')
     if [ 'x'$BRANCH = 'x' ]
     then
         echo ''
