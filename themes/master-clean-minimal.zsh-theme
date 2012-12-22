@@ -52,7 +52,7 @@ ZSH_THEME_GIT_PROMPT_SUFFIX="%b%{$BLUE_BOLD%})%{$RESET_COLOR%}"
 
 CARETCOLOR=$fg[white]
 
-PROMPT='%{${BLUE_BOLD}%}%3~%(!.%{$RED_BOLD%}.%{$GREEN_BOLD%} $ %{${RESET_COLOR}%}'
+PROMPT='%{${GREEN_BOLD}%}%m %{${BLUE_BOLD}%}%3~%(!.%{$RED_BOLD%}.%{$GREEN_BOLD%} $ %{${RESET_COLOR}%}'
 
 RPROMPT='$(git_branch)'
 
